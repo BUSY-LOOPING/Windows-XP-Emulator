@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows XP - Emulator</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/my_computer.css">
+</head>
+
+<body>
+    <template id="template-my-computer">
+        <div class="window my-computer">
+            <div class="title-bar">
+                <div class="title-text-container">
+                    <img class="title-icon" src="assets/images/my_computer.png" alt="My Computer Icon">
+                    <span class="title-text">My Computer</span>
+                </div>
+                <div class="controls">
+                    <div class="btn minimize"><img src="assets/images/Minimize.png" alt=""></div>
+                    <div class="btn maximize"><img src="assets/images/Maximize.png" alt=""></div>
+                    <div class="btn close"><img src="assets/images/Exit.png" alt=""></div>
+                </div>
+            </div>
+            
+            <div class="window-menu">
+                <ul class="menu-list">
+                    <li class="menu-item" tabindex="0">File
+                        <ul class="submenu">
+                            <li class="inactive-item">Create Shortcut</li>
+                            <li class="inactive-item">Delete</li>
+                            <li class="inactive-item">Rename</li>
+                            <li class="inactive-item">Properties</li>
+                            <li class="menu-divider"></li>
+                            <li>Close</li>
+                            
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">Edit
+                        <ul class="submenu">
+                            <li>Undo...</li>
+                            
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">View
+                        <ul class="submenu">
+                            <li>Word Wrap</li>
+                            <li>Font...</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">Favourites
+                        <ul class="submenu">
+                            <li>Toolbar</li>
+                            <li>Status Bar</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">Help
+                        <ul class="submenu">
+                            <li>Help Topics</li>
+                            <li>About Notepad</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">Tools
+                        <ul class="submenu">
+                            <li>Help Topics</li>
+                            <li>About Notepad</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">Help
+                        <ul class="submenu">
+                            <li>Help Topics</li>
+                            <li>About Notepad</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="assets/images/windows-refresh-icon.png">
+            </div>
+
+            <div class="secondary-menu">
+                <div class="secondary-menu-btn inactive">
+                    <img class="btn" src="assets/images/Back.png" alt="">
+                    <span>Back</span>
+                    <img class="dropdown" src="assets/images/down.png" alt="">
+                </div>
+
+                <div class="secondary-menu-btn inactive">
+                    <img class="btn" src="assets/images/Forward.png" alt="">
+                    <img class="dropdown" src="assets/images/down.png" alt="">
+                </div>
+
+                <div class="secondary-menu-btn">
+                    <img class="btn" src="assets/images/Up.png" alt="">
+                </div>
+
+                <div class="vertical-divider"></div>   
+                
+                <div class="secondary-menu-btn">
+                    <img class="btn" src="assets/images/Search.png" alt="">
+                    <span>Search</span>
+                </div>
+
+                <div class="secondary-menu-btn">
+                    <img class="btn" src="assets/images/Folder Opened.png" alt="">
+                    <span>Folders</span>
+                </div>
+
+                <div class="vertical-divider"></div>
+
+                <div class="secondary-menu-btn">
+                    <img class="btn" src="assets/images/folder2.png" alt="">
+                    <img class="dropdown" src="assets/images/down.png" alt="">
+                </div>
+            </div>
+
+            <div class="address-bar-container">
+                <span class="address-label">Address</span>
+                <div class="dropdown">
+                    <div class="address-head">
+                        <img src="assets/images/my_computer.png" alt="">
+                        <span>My Computer</span>
+                    </div>
+                    <img class="dropdown-icon shimmer" src="assets/images/dropdown.png" alt="">
+                </div>                
+                <div class="go-container">
+                    <img class="shimmer" src="assets/images/Go.png" alt="">
+                    <span>Go</span>
+                </div>
+            </div>
+
+            <div class="content">
+                <aside class="left-content">
+                    <div class="collection-container">
+                        <div class="collection-title-container">
+                            <h4>System Tasks</h4>
+                            <img class="collapse" src="assets/images/collapse.png" alt="">
+                        </div>
+                        <div class="collections">
+                            <div class="collection-item">
+                                <img src="assets/images/system_info.ico" alt="">
+                                <a href="">View system information</a>
+                            </div>
+
+                            <div class="collection-item">
+                                <img src="assets/images/remove_prog.png" alt="">
+                                <a href="">Add or remove programs</a>
+                            </div>
+
+                            <div class="collection-item">
+                                <img src="assets/images/change_setting.png" alt="">
+                                <a href="">Change a setting</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collection-container">
+                        <div class="collection-title-container">
+                            <h4>Other Places</h4>
+                            <img class="collapse" src="assets/images/collapse.png" alt="">
+                        </div>
+                        <div class="collections">
+                            <div class="collection-item">
+                                <img src="assets/images/network_places.png" alt="">
+                                <a href="">My Network Places</a>
+                            </div>
+
+                            <div class="collection-item">
+                                <img src="assets/images/documents.png" alt="">
+                                <a href="">My Documents</a>
+                            </div>
+
+                            <div class="collection-item">
+                                <img src="assets/images/shared_documents.png" alt="">
+                                <a href="">Shared Documents</a>
+                            </div>
+
+                            <div class="collection-item">
+                                <img src="assets/images/control_panel.png" alt="">
+                                <a href="">Control Panel</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <main>
+                    <section>
+                        <h3>Files Stored on This Computer</h3>
+                    </section>
+
+                    <section>
+                        <h3>Hard Disk Drives</h3>
+                    </section>
+
+                    <section>
+                        <h3>Devices with Removable Storage</h3>
+                    </section>
+                </main>
+            </div>
+
+
+
+            <!-- Resize handles -->
+            <div class="resize-handle n"></div>
+            <div class="resize-handle s"></div>
+            <div class="resize-handle e"></div>
+            <div class="resize-handle w"></div>
+            <div class="resize-handle ne"></div>
+            <div class="resize-handle nw"></div>
+            <div class="resize-handle se"></div>
+            <div class="resize-handle sw"></div>
+        </div>
+    </template>
+
+    <template id="template-notepad">
+        <div class="window">
+            <div class="title-bar">
+                <div class="title-text-container">
+                    <img class="title-icon" src="assets/images/my_computer.png" alt="My Computer Icon">
+                    <span class="title-text">My Computer</span>
+                </div>
+                <div class="controls">
+                    <div class="btn minimize"><img src="assets/images/Minimize.png" alt=""></div>
+                    <div class="btn maximize"><img src="assets/images/Maximize.png" alt=""></div>
+                    <div class="btn close"><img src="assets/images/Exit.png" alt=""></div>
+                </div>
+            </div>
+            <div class="window-menu">
+                <ul class="menu-list">
+                    <li class="menu-item" tabindex="0">File
+                        <ul class="submenu">
+                            <li>New</li>
+                            <li>Open</li>
+                            <li>Save</li>
+                            <li>Exit</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">Edit
+                        <ul class="submenu">
+                            <li>Undo...</li>
+                            <li>Cut</li>
+                            <li>Copy</li>
+                            <li>Paste</li>
+                            <li>Delete</li>
+                            <li class="menu-divider"></li>
+                            <li>Find...</li>
+                            <li>Find Next</li>
+                            <li>Replace...</li>
+                            <li>Go To...</li>
+                            <li class="menu-divider"></li>
+                            <li>Select All</li>
+                            <li>Time/Date</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">Format
+                        <ul class="submenu">
+                            <li>Word Wrap</li>
+                            <li>Font...</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">View
+                        <ul class="submenu">
+                            <li>Toolbar</li>
+                            <li>Status Bar</li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" tabindex="0">Help
+                        <ul class="submenu">
+                            <li>Help Topics</li>
+                            <li>About Notepad</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <textarea spellcheck="false" class="textarea"></textarea>
+            </div>
+
+            <!-- Resize handles -->
+            <div class="resize-handle n"></div>
+            <div class="resize-handle s"></div>
+            <div class="resize-handle e"></div>
+            <div class="resize-handle w"></div>
+            <div class="resize-handle ne"></div>
+            <div class="resize-handle nw"></div>
+            <div class="resize-handle se"></div>
+            <div class="resize-handle sw"></div>
+        </div>
+    </template>
+
+
+    <img id="background" src="assets/images/background.jpg" alt="">
+    <div id="desktop">
+        <div id="icon-bar">
+            <div class="icon" id="myComputerIcon">🖥️<br>My PC</div>
+            <div class="icon" id="notesIcon">🗒️<br>Notes</div>
+        </div>
+    </div>
+    <footer>
+        <img src="assets/images/start_menu.png">
+
+        <div class="taskbar">
+            <div class="taskbar-app">
+                <img l src="assets/images/internet_explorer_taskbar.png" alt="">
+                <span>Internet Explorer</span>
+            </div>
+
+            <div class="taskbar-app">
+                <img src="assets/images/internet_explorer_taskbar.png" alt="">
+                <span>Internet Explorer</span>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main_template.js"></script>
+</body>
+
+</html>
