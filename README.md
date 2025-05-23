@@ -14,7 +14,6 @@ A web-based simulation of the classic Windows XP desktop environment. This proje
 
 - **HTML5 & CSS3**: Structure and styling of the emulator.
 - **JavaScript**: Interactive functionalities and application logic.
-- **[Insert Framework/Library if used]**: [Brief description of its role in the project].
 
 ## 📄 License
 
