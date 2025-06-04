@@ -60,6 +60,18 @@ class WindowApp {
             });
             WindowApp._desktopHandlerAttached = true;
         }
+
+        const windowId = `win-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        this.el.dataset.windowId = windowId;
+
+        TaskbarManager.addApp(windowId, title, iconSrc, this.el);
+
+        document.querySelectorAll('.taskbar-app').forEach(b => b.classList.remove('active'));
+        const taskbarBtn = TaskbarManager.windows.get(windowId)?.btn;
+        if (taskbarBtn) taskbarBtn.classList.add('active');
+
+        // store ID to remove later
+        this.windowId = windowId;
     }
 
     toggleMaximize() {
@@ -124,7 +136,10 @@ class WindowApp {
         });
 
         // Controls
-        closeBtn.addEventListener('click', () => win.remove());
+        closeBtn.addEventListener('click', () => {
+            TaskbarManager.removeApp(this.windowId);
+            this.el.remove();
+        });
         minimizeBtn.addEventListener('click', () => win.style.display = 'none');
 
         // Resize
@@ -184,7 +199,12 @@ class WindowApp {
         document.querySelectorAll('.window').forEach(w => w.classList.add('inactive'));
         this.el.classList.remove('inactive');
         this.el.style.zIndex = ++zCounter;
-    }
+
+        // Taskbar button update
+        document.querySelectorAll('.taskbar-app').forEach(b => b.classList.remove('active'));
+        const taskbarBtn = TaskbarManager.windows.get(this.windowId)?.btn;
+        if (taskbarBtn) taskbarBtn.classList.add('active');
+        }
 
     enableMenuOpenClose() {
         document.querySelectorAll('.window-menu .menu-item').forEach(item => {
@@ -216,6 +236,80 @@ class WindowManager {
     }
 }
 
+class TaskbarManager {
+    static taskbarEl = document.querySelector('.taskbar');
+    static windows = new Map(); // Map<windowId, {title, iconSrc, element}>
+
+    static addApp(windowId, title, iconSrc, windowEl) {
+        if (this.windows.has(windowId)) return;
+
+        const btn = document.createElement('div');
+        btn.className = 'taskbar-app';
+        btn.innerHTML = `<img src="${iconSrc}" alt=""><span>${title}</span>`;
+        btn.onclick = () => {
+            const el = this.windows.get(windowId).element;
+            el.style.display = ''; // restore from minimized
+            el.style.zIndex = ++zCounter;
+            document.querySelectorAll('.window').forEach(w => w.classList.add('inactive'));
+            el.classList.remove('inactive');
+
+            // Highlight active taskbar button
+            document.querySelectorAll('.taskbar-app').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        };
+
+        this.taskbarEl.appendChild(btn);
+        this.windows.set(windowId, { title, iconSrc, element: windowEl, btn });
+
+        this.updateLayout();
+    }
+
+    static removeApp(windowId) {
+        const entry = this.windows.get(windowId);
+        if (!entry) return;
+        entry.btn.remove();
+        this.windows.delete(windowId);
+        this.updateLayout();
+    }
+
+    static updateLayout() {
+    const taskbarEl = this.taskbarEl;
+    const iconsBar = document.querySelector('.taskbar-icons-bar');
+    if (!iconsBar) return;
+
+    const taskbarRect = taskbarEl.getBoundingClientRect();
+    const iconsBarRect = iconsBar.getBoundingClientRect();
+
+    // Prevent overlap: space available before icons bar starts
+    const maxWidth = iconsBarRect.left - taskbarRect.left - 12; // 12px padding
+
+    const count = this.windows.size;
+    if (count === 0) return;
+
+    const maxPerBtn = Math.floor(maxWidth / count);
+    const finalWidth = Math.max(60, Math.min(160, maxPerBtn));
+
+    this.windows.forEach(({ btn }) => {
+        btn.style.width = `${finalWidth}px`;
+    });
+    }
+}
+
+function updateClock() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const suffix = hours >= 12 ? 'PM' : 'AM';
+
+    const displayHours = hours % 12 || 12;
+    const displayMinutes = minutes.toString().padStart(2, '0');
+
+    document.getElementById('time').textContent = `${displayHours}:${displayMinutes} ${suffix}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
 document.getElementById('myComputerIcon').addEventListener('dblclick', () => {
     WindowManager.openApp('template-my-computer', {
         title: 'My Computer',
@@ -232,9 +326,53 @@ document.getElementById('notesIcon').addEventListener('dblclick', () => {
     });
 });
 
+
+document.querySelectorAll('.icon').forEach(icon => {
+    icon.addEventListener('click', function (e) {
+        e.stopPropagation();
+        document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
+
+document.addEventListener('click', function () {
+    document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));
+});
+
+function toggleStartMenu() {
+  const menu = document.getElementById("start-menu");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+
+function toggleSubMenu(id) {
+  document.querySelectorAll(".submenu").forEach(el => el.classList.add("hidden"));
+  const el = document.getElementById(id + '-submenu');
+  if (el) el.classList.remove("hidden");
+}
+
+document.addEventListener('mousedown', function(e) {
+    const startMenu = document.getElementById('start-menu');
+    const startBtn = document.querySelector('footer img[onclick*="toggleStartMenu"]');
+    // Only close if menu is open and click is outside both menu and button
+    if (
+        startMenu.style.display === "flex" &&
+        !startMenu.contains(e.target) &&
+        e.target !== startBtn
+    ) {
+        startMenu.style.display = "none";
+    }
+});
+
+
 WindowManager.openApp('template-my-computer', {
     title: 'My Computer',
     iconSrc: 'assets/images/my_computer.png',
     width: 700, height: 400, x: 100, y: 20
 });
+
+
 

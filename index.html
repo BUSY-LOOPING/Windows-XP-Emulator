@@ -23,7 +23,7 @@
                     <div class="btn close"><img src="assets/images/Exit.png" alt=""></div>
                 </div>
             </div>
-            
+
             <div class="window-menu">
                 <ul class="menu-list">
                     <li class="menu-item" tabindex="0">File
@@ -34,13 +34,13 @@
                             <li class="inactive-item">Properties</li>
                             <li class="menu-divider"></li>
                             <li>Close</li>
-                            
+
                         </ul>
                     </li>
                     <li class="menu-item" tabindex="0">Edit
                         <ul class="submenu">
                             <li>Undo...</li>
-                            
+
                         </ul>
                     </li>
                     <li class="menu-item" tabindex="0">View
@@ -93,8 +93,8 @@
                     <img class="btn" src="assets/images/Up.png" alt="">
                 </div>
 
-                <div class="vertical-divider"></div>   
-                
+                <div class="vertical-divider"></div>
+
                 <div class="secondary-menu-btn">
                     <img class="btn" src="assets/images/Search.png" alt="">
                     <span>Search</span>
@@ -121,7 +121,7 @@
                         <span>My Computer</span>
                     </div>
                     <img class="dropdown-icon shimmer" src="assets/images/dropdown.png" alt="">
-                </div>                
+                </div>
                 <div class="go-container">
                     <img class="shimmer" src="assets/images/Go.png" alt="">
                     <span>Go</span>
@@ -184,14 +184,38 @@
                 <main>
                     <section>
                         <h3>Files Stored on This Computer</h3>
+                        <div class="horizontal-center icon-container-wrapper">
+                            <div class="horizontal-center icon-container">
+                                <img src="assets/images/folder_icon.png" alt="">
+                                <span>Shared Documents</span>
+                            </div>
+
+                            <div class="horizontal-center icon-container">
+                                <img src="assets/images/folder_icon.png" alt="">
+                                <span>User's Documents</span>
+                            </div>
+                        </div>
                     </section>
 
                     <section>
                         <h3>Hard Disk Drives</h3>
+                        <div class="horizontal-center icon-container-wrapper">
+                            <div class="horizontal-center icon-container">
+                                <img src="assets/images/drive.png" alt="">
+                                <span>Local Disk (C:)</span>
+                            </div>
+                        </div>
                     </section>
 
                     <section>
                         <h3>Devices with Removable Storage</h3>
+
+                        <div class="horizontal-center icon-container-wrapper">
+                            <div class="horizontal-center icon-container">
+                                <img src="assets/images/cd-dvd.png" alt="">
+                                <span>CD Drive (D:)</span>
+                            </div>
+                        </div>
                     </section>
                 </main>
             </div>
@@ -290,23 +314,97 @@
     <img id="background" src="assets/images/background.jpg" alt="">
     <div id="desktop">
         <div id="icon-bar">
-            <div class="icon" id="myComputerIcon">🖥️<br>My PC</div>
-            <div class="icon" id="notesIcon">🗒️<br>Notes</div>
+            <div class="icon" id="myComputerIcon">
+                <img src="assets/images/my_computer_full.png" alt="">
+                <div class="icon-label">My Computer</div>
+            </div>
+            <div class="icon" id="notesIcon">
+                <img src="assets/images/notepad_full.png" alt="">
+                <div class="icon-label">Notepad</div>
+            </div>
+        </div>
+    </div>
+    <div id="start-menu">
+        <div class="start-menu-left">
+            <div class="start-user">
+                <img src="user-icon.png" alt="User Icon" class="user-icon">
+                <span>User</span>
+            </div>
+            <ul class="quick-launch">
+                <li><b>Internet</b><br><span>Internet Explorer</span></li>
+                <li><b>E-mail</b><br><span>Outlook Express</span></li>
+                <li>Minesweeper</li>
+                <li>Notepad</li>
+                <li>Winamp</li>
+                <li>Paint</li>
+                <li>Windows Media Player</li>
+                <li>Windows Messenger</li>
+                <li class="all-programs" onclick="toggleSubMenu('programs')">All Programs ▸</li>
+            </ul>
+        </div>
+        <div class="start-menu-right">
+            <ul>
+                <li><b>My Documents</b></li>
+                <li><b>My Recent Documents</b></li>
+                <li><b>My Pictures</b></li>
+                <li><b>My Music</b></li>
+                <li><b>My Computer</b></li>
+                <hr>
+                <li>Control Panel</li>
+                <li>Set Program Access and Defaults</li>
+                <li>Connect To</li>
+                <li>Printers and Faxes</li>
+                <hr>
+                <li>Help and Support</li>
+                <li>Search</li>
+                <li>Run...</li>
+            </ul>
+        </div>
+        <div id="programs-submenu" class="submenu hidden">
+            <ul>
+                <li onclick="toggleSubMenu('accessories')">Accessories ▸</li>
+                <li>Games</li>
+                <li>Startup</li>
+                <li>Internet Explorer</li>
+                <li>Outlook Express</li>
+                <li>Remote Assistance</li>
+                <li>Windows Media Player</li>
+                <li>Windows Messenger</li>
+                <li>Windows Movie Maker</li>
+            </ul>
+        </div>
+        <div id="accessories-submenu" class="submenu hidden">
+            <ul>
+                <li>Address Book</li>
+                <li>Command Prompt</li>
+                <li>Notepad</li>
+                <li>Paint</li>
+                <li>Calculator</li>
+                <li>Program Compatibility Wizard</li>
+                <li>Remote Desktop Connection</li>
+                <li>Synchronize</li>
+                <li>Tour Windows XP</li>
+                <li>Windows Explorer</li>
+                <li>WordPad</li>
+            </ul>
         </div>
     </div>
     <footer>
-        <img src="assets/images/start_menu.png">
+        <img src="assets/images/start_menu.png" onclick="toggleStartMenu()">
 
         <div class="taskbar">
-            <div class="taskbar-app">
+            <!-- <div class="taskbar-app">
                 <img l src="assets/images/internet_explorer_taskbar.png" alt="">
                 <span>Internet Explorer</span>
-            </div>
+            </div> -->
 
-            <div class="taskbar-app">
-                <img src="assets/images/internet_explorer_taskbar.png" alt="">
-                <span>Internet Explorer</span>
-            </div>
+        </div>
+
+        <div class="taskbar-icons-bar">
+            <img src="assets/images/sound_icon.png" alt="">
+            <img src="assets/images/taskbar_icon2.png" alt="">
+            <img src="assets/images/taskbar_icon3.png" alt="">
+            <span id="time">10:07 PM</span>
         </div>
     </footer>
     <script src="assets/js/main_template.js"></script>
