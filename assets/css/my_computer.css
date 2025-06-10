@@ -60,7 +60,7 @@
     width: auto;
 }
 
-.my-computer .vertical-divider{
+.my-computer .vertical-divider {
     height: 100%;
     width: 1px;
     background: #bebdb3;
@@ -78,7 +78,7 @@
 }
 
 .my-computer .address-bar-container .dropdown {
-    box-sizing:border-box;
+    box-sizing: border-box;
     flex-basis: 82%;
     border: 1px solid #d5d5cd;
     background: #fff;
@@ -125,7 +125,7 @@
     height: 20px;
 }
 
-.my-computer .content{
+.my-computer .content {
     display: flex;
     flex-flow: row nowrap;
     box-shadow: none;
@@ -137,7 +137,7 @@
 }
 
 .my-computer .content aside {
-    background: linear-gradient(to top left,#4b4dd0 0%, #7b82fb 100%);
+    background: linear-gradient(to top left, #4b4dd0 0%, #7b82fb 100%);
     width: 180px;
     height: 100%;
 }
@@ -159,14 +159,18 @@
     border-top-right-radius: 3px;
 }
 
-h4, ul, li, a, h3 {
+h4,
+ul,
+li,
+a,
+h3 {
     padding: 0;
     margin: 0;
     list-style: none;
     text-decoration: none;
 }
 
-.my-computer .collection-title-container{
+.my-computer .collection-title-container {
     padding-left: 11px;
     padding-right: 2px;
     display: flex;
@@ -186,13 +190,13 @@ h4 {
 .my-computer .collections {
     display: flex;
     flex-flow: column nowrap;
-    gap:4px;
+    gap: 4px;
     align-items: flex-start;
     padding: 5px 10px;
     font-size: 10px;
 }
 
-.my-computer .collection-item{
+.my-computer .collection-item {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -218,7 +222,7 @@ h4 {
     background-repeat: no-repeat;
     background-size: 120% 1px;
     background-position: bottom left;
-    padding-bottom: 5px; 
+    padding-bottom: 5px;
 }
 
 .my-computer .icon-container-wrapper {
@@ -232,4 +236,3 @@ h4 {
 .my-computer .icon-container {
     gap: 5px;
 }
-

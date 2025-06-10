@@ -1,0 +1,265 @@
+#start-menu {
+    
+    position: absolute;
+    bottom: 34px;
+    left: 0;
+    width: 384px;
+    height: 477px;
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 10px;
+    box-shadow:
+        inset 0 1.5px 5px #fcfcfc,
+        inset 0 -1px 5px #334dcf,
+        0 2px 6px rgba(0, 0, 0, 0.3);
+    background: #eaf0fd;
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+    overflow: hidden;
+}
+
+/* User Header */
+#user-container {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background: linear-gradient(to bottom,
+            #2d436d 0%,
+            #4684e2 3%,
+            #365cd7 10%,
+            #3657db 97%,
+            #26358f 100%);
+    box-shadow:
+        inset 0 1.5px 5px #4887e3,
+        inset 0 -1px 5px #334dcf;
+    border-top-right-radius: 10px;
+}
+
+#start-user {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+}
+
+#start-user-text {
+    color: #fff;
+    margin-left: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Main Content Area */
+#start-menu-container {
+    position: relative;
+    flex: 1;
+    padding-bottom: 36px;
+    display: flex;
+    background: #fff;
+}
+
+/* Two Columns */
+.start-menu-column {
+    position: relative;
+    flex: 1;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.start-menu-left {
+    overflow: hidden;
+    flex-flow: column wrap;
+    border-right: 1px solid #9d94fd;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* push content to top and bottom */
+    padding: 4px 0;
+}
+
+.start-menu-right {
+    background: #cbe2fe;
+    white-space: normal; 
+  overflow: hidden;     
+  word-break: break-word;
+}
+
+.start-menu-right .start-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.start-quick-launch {
+    flex-flow: column wrap;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    /* take available vertical space */
+}
+
+/* Lists Reset */
+.start-quick-launch,
+.start-favorites {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* List Items */
+.start-item,
+.start-subitem {
+     width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    cursor: pointer;
+    white-space: wrap;
+    /* transition: background 0.1s; */
+}
+
+.start-item b {
+    font-size: 13px;
+}
+
+.start-item span {
+    font-size: 11px;
+    color: #555;
+}
+
+.divider {
+    height: 1px;
+    margin: 6px 0;
+    background: #ccc;
+    pointer-events: none;
+}
+
+/* Icons in Quick Launch */
+.start-item img.start-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Hover States */
+.start-item:hover,
+.start-item:hover span,
+.start-subitem:hover {
+    background: #386bca;
+    color: #fff;
+}
+
+.all-programs:hover .start-text {
+    color: #fff;
+}
+
+.start-text {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 100%;            /* Make sure it doesn't overflow */
+}
+
+
+/* “All Programs” Emphasis */
+.start-item.all-programs {
+
+  /* justify-content: center; */
+  /* text-align: center; */
+  gap: 6px;
+  padding: 8px;
+  padding-left: 16px;
+
+  /* border-top: 1px solid #ccc; */
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.start-submenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+}
+
+.start-submenu li {
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+.start-submenu li:hover {
+    background: #dbe9ff;
+}
+
+/* Hidden Utility */
+.hidden {
+    display: none !important;
+}
+
+/* Custom Scrollbar (WebKit) */
+#start-menu-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#start-menu-container::-webkit-scrollbar-thumb,
+.start-submenu::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+#start-menu-bottom {
+    background: linear-gradient(rgb(66, 130, 214) 0%, rgb(59, 133, 224) 3%, rgb(65, 138, 227) 5%, rgb(65, 138, 227) 17%, rgb(60, 135, 226) 21%, rgb(55, 134, 228) 26%, rgb(52, 130, 227) 29%, rgb(46, 126, 225) 39%, rgb(35, 116, 223) 49%, rgb(32, 114, 219) 57%, rgb(25, 110, 219) 62%, rgb(23, 107, 216) 72%, rgb(20, 104, 213) 75%, rgb(17, 101, 210) 83%, rgb(15, 97, 203) 88%);
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  height: 36px;
+  padding: 0 0;
+}
+
+.start-button {
+    font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 12px;
+  background: #f0f0f000;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  margin: 4px 3px;
+}
+
+.start-button img {
+  width: 22px;
+  height: 22px;
+}
+
+.start-button:hover {
+  background: #3953d2;
+}
+
+
+.start-submenu {
+    color: #000;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #ffffff;
+  border-left: 1px solid #888;
+  padding: 10px;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+

@@ -7,6 +7,7 @@
     <title>Windows XP - Emulator</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/my_computer.css">
+    <link rel="stylesheet" href="assets/css/start.css">
 </head>
 
 <body>
@@ -325,79 +326,168 @@
         </div>
     </div>
     <div id="start-menu">
-        <div class="start-menu-left">
-            <div class="start-user">
-                <img src="user-icon.png" alt="User Icon" class="user-icon">
-                <span>User</span>
+        <div id="user-container">
+            <img id="start-user" src="assets/images/user.png" alt="">
+            <span id="start-user-text">User</span>
+        </div>
+        <div id="start-menu-container">
+            <!-- LEFT COLUMN: Quick Launch -->
+            <div class="start-menu-column start-menu-left">
+                <ul class="start-quick-launch">
+                    <li class="start-item">
+                        <img src="assets/images/ie_start.png" alt="" class="start-icon">
+                        <div class="start-text">
+                            <b>Internet</b><br>
+                            <span>Internet Explorer</span>
+                        </div>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/mail_start.png" alt="" class="start-icon">
+                        <div class="start-text">
+                            <b>E-mail</b><br>
+                            <span>Outlook Express</span>
+                        </div>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/minesweeper.png" alt="" class="start-icon">
+                        <div class="start-text">Minesweeper</div>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/notepad_start.png" alt="" class="start-icon">
+                        <div class="start-text">Notepad</div>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/winamp_start.png" alt="" class="start-icon">
+                        <div class="start-text">Winamp</div>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/paint_start.png" alt="" class="start-icon">
+                        <div class="start-text">Paint</div>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/media_player_start.png" alt="" class="start-icon">
+                        <div class="start-text">Windows Media Player</div>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/msn_start.png" alt="" class="start-icon">
+                        <div class="start-text">Windows Messenger</div>
+                    </li>
+                </ul>
+                <div class="start-item all-programs" data-sub="programs">
+                    <div class="start-text">All Programs</div>
+                    <img src="assets/images/all-programs.ico" alt="">
+                </div>
+
+
             </div>
-            <ul class="quick-launch">
-                <li><b>Internet</b><br><span>Internet Explorer</span></li>
-                <li><b>E-mail</b><br><span>Outlook Express</span></li>
-                <li>Minesweeper</li>
-                <li>Notepad</li>
-                <li>Winamp</li>
-                <li>Paint</li>
-                <li>Windows Media Player</li>
-                <li>Windows Messenger</li>
-                <li class="all-programs" onclick="toggleSubMenu('programs')">All Programs ▸</li>
-            </ul>
-        </div>
-        <div class="start-menu-right">
-            <ul>
-                <li><b>My Documents</b></li>
-                <li><b>My Recent Documents</b></li>
-                <li><b>My Pictures</b></li>
-                <li><b>My Music</b></li>
-                <li><b>My Computer</b></li>
-                <hr>
-                <li>Control Panel</li>
-                <li>Set Program Access and Defaults</li>
-                <li>Connect To</li>
-                <li>Printers and Faxes</li>
-                <hr>
-                <li>Help and Support</li>
-                <li>Search</li>
-                <li>Run...</li>
-            </ul>
-        </div>
-        <div id="programs-submenu" class="submenu hidden">
-            <ul>
-                <li onclick="toggleSubMenu('accessories')">Accessories ▸</li>
-                <li>Games</li>
-                <li>Startup</li>
-                <li>Internet Explorer</li>
-                <li>Outlook Express</li>
-                <li>Remote Assistance</li>
-                <li>Windows Media Player</li>
-                <li>Windows Messenger</li>
-                <li>Windows Movie Maker</li>
-            </ul>
-        </div>
-        <div id="accessories-submenu" class="submenu hidden">
-            <ul>
-                <li>Address Book</li>
-                <li>Command Prompt</li>
-                <li>Notepad</li>
-                <li>Paint</li>
-                <li>Calculator</li>
-                <li>Program Compatibility Wizard</li>
-                <li>Remote Desktop Connection</li>
-                <li>Synchronize</li>
-                <li>Tour Windows XP</li>
-                <li>Windows Explorer</li>
-                <li>WordPad</li>
-            </ul>
+
+            <!-- RIGHT COLUMN: Favorites -->
+            <div class="start-menu-column start-menu-right">
+                <ul class="start-favorites">
+                    <li class="start-item">
+                        <img src="assets/images/my_documents_start.png" class="start-icon" alt="">
+                        <b>My Documents</b>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/my_recent_documents_start.png" class="start-icon" alt="">
+                        <b>My Recent Documents</b>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/my_pictures_start.png" class="start-icon" alt="">
+                        <b>My Pictures</b>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/my_music_start.png" class="start-icon" alt="">
+                        <b>My Music</b>
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/my_computer_start.png" class="start-icon" alt="">
+                        <b>My Computer</b>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="start-item">
+                        <img src="assets/images/control_center_start.png" class="start-icon" alt="">
+                        Control Panel
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/default_access_start.png" class="start-icon" alt="">
+                        Set Program Access and Defaults
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/connect_to_start.png" class="start-icon" alt="">
+                        Connect To
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/printer_n_faxes_start.png" class="start-icon" alt="">
+                        Printers and Faxes
+                    </li>
+                    <li class="divider"></li>
+                    <li class="start-item">
+                        <img src="assets/images/help_n_support.png" class="start-icon" alt="">
+                        Help and Support
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/search_start.png" class="start-icon" alt="">
+                        Search
+                    </li>
+                    <li class="start-item">
+                        <img src="assets/images/run_start.png" class="start-icon" alt="">
+                        Run...
+                    </li>
+                </ul>
+
+
+            </div>
+
+            <!-- ALL PROGRAMS FLYOUT -->
+            <div id="programs" class="start-submenu hidden">
+                <ul>
+                    <li class="start-subitem" data-sub="accessories">Accessories ▸</li>
+                    <li class="start-subitem">Games</li>
+                    <li class="start-subitem">Startup</li>
+                    <li class="start-subitem">Internet Explorer</li>
+                    <li class="start-subitem">Outlook Express</li>
+                    <li class="start-subitem">Remote Assistance</li>
+                    <li class="start-subitem">Windows Media Player</li>
+                    <li class="start-subitem">Windows Messenger</li>
+                    <li class="start-subitem">Windows Movie Maker</li>
+                </ul>
+            </div>
+
+            <!-- ACCESSORIES FLYOUT -->
+            <div id="accessories" class="start-submenu hidden">
+                <ul>
+                    <li class="start-subitem">Address Book</li>
+                    <li class="start-subitem">Command Prompt</li>
+                    <li class="start-subitem">Notepad</li>
+                    <li class="start-subitem">Paint</li>
+                    <li class="start-subitem">Calculator</li>
+                    <li class="start-subitem">Program Compatibility Wizard</li>
+                    <li class="start-subitem">Remote Desktop Connection</li>
+                    <li class="start-subitem">Synchronize</li>
+                    <li class="start-subitem">Tour Windows XP</li>
+                    <li class="start-subitem">Windows Explorer</li>
+                    <li class="start-subitem">WordPad</li>
+                </ul>
+            </div>
+            <div id="start-menu-bottom">
+                <button class="start-button logoff">
+                    <img src="assets/images/log_off.png" alt="">
+                    Log Off
+                </button>
+                <button class="start-button turnoff">
+                    <img src="assets/images/turn_off.png" alt="">
+                    Turn Off Computer
+                </button>
+            </div>
+
         </div>
     </div>
+
     <footer>
         <img src="assets/images/start_menu.png" onclick="toggleStartMenu()">
 
         <div class="taskbar">
-            <!-- <div class="taskbar-app">
-                <img l src="assets/images/internet_explorer_taskbar.png" alt="">
-                <span>Internet Explorer</span>
-            </div> -->
-
         </div>
 
         <div class="taskbar-icons-bar">

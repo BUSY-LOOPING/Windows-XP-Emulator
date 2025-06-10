@@ -458,20 +458,3 @@ footer {
 }
 
 
-/* START */
-#start-menu {
-  position: absolute;
-  bottom: 34px;
-  left: 0;
-  display: none;
-  width: 477px;
-  height: 400px;
-  background: #fff;
-  border: 2px solid #3a4db4;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-.hidden {
-  display: none;
-}

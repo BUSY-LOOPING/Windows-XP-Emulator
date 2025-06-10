@@ -204,7 +204,7 @@ class WindowApp {
         document.querySelectorAll('.taskbar-app').forEach(b => b.classList.remove('active'));
         const taskbarBtn = TaskbarManager.windows.get(this.windowId)?.btn;
         if (taskbarBtn) taskbarBtn.classList.add('active');
-        }
+    }
 
     enableMenuOpenClose() {
         document.querySelectorAll('.window-menu .menu-item').forEach(item => {
@@ -273,25 +273,25 @@ class TaskbarManager {
     }
 
     static updateLayout() {
-    const taskbarEl = this.taskbarEl;
-    const iconsBar = document.querySelector('.taskbar-icons-bar');
-    if (!iconsBar) return;
+        const taskbarEl = this.taskbarEl;
+        const iconsBar = document.querySelector('.taskbar-icons-bar');
+        if (!iconsBar) return;
 
-    const taskbarRect = taskbarEl.getBoundingClientRect();
-    const iconsBarRect = iconsBar.getBoundingClientRect();
+        const taskbarRect = taskbarEl.getBoundingClientRect();
+        const iconsBarRect = iconsBar.getBoundingClientRect();
 
-    // Prevent overlap: space available before icons bar starts
-    const maxWidth = iconsBarRect.left - taskbarRect.left - 12; // 12px padding
+        // Prevent overlap: space available before icons bar starts
+        const maxWidth = iconsBarRect.left - taskbarRect.left - 12; // 12px padding
 
-    const count = this.windows.size;
-    if (count === 0) return;
+        const count = this.windows.size;
+        if (count === 0) return;
 
-    const maxPerBtn = Math.floor(maxWidth / count);
-    const finalWidth = Math.max(60, Math.min(160, maxPerBtn));
+        const maxPerBtn = Math.floor(maxWidth / count);
+        const finalWidth = Math.max(60, Math.min(160, maxPerBtn));
 
-    this.windows.forEach(({ btn }) => {
-        btn.style.width = `${finalWidth}px`;
-    });
+        this.windows.forEach(({ btn }) => {
+            btn.style.width = `${finalWidth}px`;
+        });
     }
 }
 
@@ -340,21 +340,21 @@ document.addEventListener('click', function () {
 });
 
 function toggleStartMenu() {
-  const menu = document.getElementById("start-menu");
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
-  }
+    const menu = document.getElementById("start-menu");
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
 }
 
 function toggleSubMenu(id) {
-  document.querySelectorAll(".submenu").forEach(el => el.classList.add("hidden"));
-  const el = document.getElementById(id + '-submenu');
-  if (el) el.classList.remove("hidden");
+    document.querySelectorAll(".submenu").forEach(el => el.classList.add("hidden"));
+    const el = document.getElementById(id + '-submenu');
+    if (el) el.classList.remove("hidden");
 }
 
-document.addEventListener('mousedown', function(e) {
+document.addEventListener('mousedown', function (e) {
     const startMenu = document.getElementById('start-menu');
     const startBtn = document.querySelector('footer img[onclick*="toggleStartMenu"]');
     // Only close if menu is open and click is outside both menu and button
@@ -368,11 +368,21 @@ document.addEventListener('mousedown', function(e) {
 });
 
 
-WindowManager.openApp('template-my-computer', {
-    title: 'My Computer',
-    iconSrc: 'assets/images/my_computer.png',
-    width: 700, height: 400, x: 100, y: 20
+const allPrograms = document.querySelector(".all-programs");
+const programsMenu = document.getElementById("programs");
+
+allPrograms.addEventListener("click", function (e) {
+    e.stopPropagation();
+    programsMenu.classList.toggle("hidden");
 });
+
+// Optional: close the menu if user clicks anywhere else
+document.body.addEventListener("click", function () {
+    programsMenu.classList.add("hidden");
+});
+
+const startMenu = document.getElementById('start-menu');
+startMenu.style.display = "none"
 
 
 
